@@ -5,12 +5,15 @@ import com.fsse2401.project.data.transactionProduct.domainObject.TransactionProd
 import com.fsse2401.project.data.user.UserResponseData;
 import com.fsse2401.project.entity.TransactionEntity;
 import com.fsse2401.project.entity.TransactionProductEntity;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+@Getter @Setter
 public class TransactionResponseData {
     private Integer tid;
     private UserResponseData user;
@@ -27,51 +30,6 @@ public class TransactionResponseData {
         this.total = entity.getTotal();
         setTransactionProductList(transactionProductEntityList);
     }
-
-    public Integer getTid() {
-        return tid;
-    }
-
-    public void setTid(Integer tid) {
-        this.tid = tid;
-    }
-
-    public UserResponseData getUser() {
-        return user;
-    }
-
-    public void setUser(UserResponseData user) {
-        this.user = user;
-    }
-
-    public LocalDateTime getDatetime() {
-        return datetime;
-    }
-
-    public void setDatetime(LocalDateTime datetime) {
-        this.datetime = datetime;
-    }
-
-    public TransactionStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(TransactionStatus status) {
-        this.status = status;
-    }
-
-    public BigDecimal getTotal() {
-        return total;
-    }
-
-    public void setTotal(BigDecimal total) {
-        this.total = total;
-    }
-
-    public List<TransactionProductResponseData> getTransactionProductList() {
-        return transactionProductList;
-    }
-
     public void setTransactionProductList(List<TransactionProductEntity> entityList) {
         for (TransactionProductEntity transactionProductEntity : entityList) {
             this.transactionProductList.add(new TransactionProductResponseData(transactionProductEntity));

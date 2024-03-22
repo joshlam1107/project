@@ -2,9 +2,12 @@ package com.fsse2401.project.data.product.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fsse2401.project.data.product.domainObject.ProductResponseData;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 
+@Getter @Setter
 public class GetAllProductResponseDto {
     private Integer pid;
     private String name;
@@ -20,45 +23,5 @@ public class GetAllProductResponseDto {
         this.imageUrl = data.getImageUrl();
         this.price = data.getPrice();
         this.hasStock = data.getStock() > 0;
-    }
-
-    public Integer getPid() {
-        return pid;
-    }
-
-    public void setPid(Integer pid) {
-        this.pid = pid;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getImageUrl() {
-        return imageUrl;
-    }
-
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
-    }
-
-    public BigDecimal getPrice() {
-        return price;
-    }
-
-    public void setPrice(BigDecimal price) {
-        this.price = price;
-    }
-
-    public boolean isHasStock() {
-        return hasStock;
-    }
-
-    public void setHasStock(boolean hasStock) {
-        this.hasStock = hasStock;
     }
 }

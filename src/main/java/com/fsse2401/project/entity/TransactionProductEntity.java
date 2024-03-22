@@ -1,9 +1,13 @@
 package com.fsse2401.project.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 @Entity(name = "transaction_product")
+@Getter @Setter @NoArgsConstructor
 public class TransactionProductEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,8 +28,6 @@ public class TransactionProductEntity {
     @Column(nullable = false)
     private Integer quantity;
 
-    public TransactionProductEntity(){}
-
     public TransactionProductEntity(TransactionEntity transactionInfo, CartItemEntity cartItemEntity) {
         this.transactionInfo = transactionInfo;
         this.pid = cartItemEntity.getProduct().getPid();
@@ -35,77 +37,5 @@ public class TransactionProductEntity {
         this.price = cartItemEntity.getProduct().getPrice();
         this.stock = cartItemEntity.getProduct().getStock();
         this.quantity = cartItemEntity.getQuantity();
-    }
-
-    public Integer getTpid() {
-        return tpid;
-    }
-
-    public void setTpid(Integer tpid) {
-        this.tpid = tpid;
-    }
-
-    public TransactionEntity getTransactionInfo() {
-        return transactionInfo;
-    }
-
-    public void setTransactionInfo(TransactionEntity transactionInfo) {
-        this.transactionInfo = transactionInfo;
-    }
-
-    public Integer getPid() {
-        return pid;
-    }
-
-    public void setPid(Integer pid) {
-        this.pid = pid;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getImageUrl() {
-        return imageUrl;
-    }
-
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
-    }
-
-    public BigDecimal getPrice() {
-        return price;
-    }
-
-    public void setPrice(BigDecimal price) {
-        this.price = price;
-    }
-
-    public Integer getStock() {
-        return stock;
-    }
-
-    public void setStock(Integer stock) {
-        this.stock = stock;
-    }
-
-    public Integer getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
     }
 }

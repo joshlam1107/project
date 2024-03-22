@@ -2,6 +2,9 @@ package com.fsse2401.project.entity;
 
 import com.fsse2401.project.data.transaction.status.TransactionStatus;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -9,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity(name = "transaction")
+@Getter @Setter @NoArgsConstructor
 public class TransactionEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,61 +30,10 @@ public class TransactionEntity {
     @OneToMany(mappedBy = "transactionInfo")
     private List<TransactionProductEntity> transactionProductList = new ArrayList<>();
 
-    public TransactionEntity(){
-    }
-
     public TransactionEntity (UserEntity user, TransactionStatus status){
         this.user = user;
         this.datetime = LocalDateTime.now();
         this.status = status;
         this.total = BigDecimal.ZERO;
-    }
-
-    public Integer getTid() {
-        return tid;
-    }
-
-    public void setTid(Integer tid) {
-        this.tid = tid;
-    }
-
-    public UserEntity getUser() {
-        return user;
-    }
-
-    public void setUser(UserEntity user) {
-        this.user = user;
-    }
-
-    public LocalDateTime getDatetime() {
-        return datetime;
-    }
-
-    public void setDatetime(LocalDateTime datetime) {
-        this.datetime = datetime;
-    }
-
-    public TransactionStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(TransactionStatus status) {
-        this.status = status;
-    }
-
-    public BigDecimal getTotal() {
-        return total;
-    }
-
-    public void setTotal(BigDecimal total) {
-        this.total = total;
-    }
-
-    public List<TransactionProductEntity> getTransactionProductList() {
-        return transactionProductList;
-    }
-
-    public void setTransactionProductList(List<TransactionProductEntity> transactionProductList) {
-        this.transactionProductList = transactionProductList;
     }
 }

@@ -8,9 +8,13 @@ import com.fsse2401.project.entity.TransactionProductEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 
+@Getter @Setter
 public class TransactionProductResponseData {
     private Integer tpid;
     private Integer pid;
@@ -21,8 +25,6 @@ public class TransactionProductResponseData {
     private Integer stock;
     private Integer quantity;
 
-    public TransactionProductResponseData(){}
-
     public TransactionProductResponseData(TransactionProductEntity entity) {
         this.tpid = entity.getTpid();
         this.pid = entity.getPid();
@@ -32,69 +34,5 @@ public class TransactionProductResponseData {
         this.price = entity.getPrice();
         this.stock = entity.getStock();
         this.quantity = entity.getQuantity();
-    }
-
-    public Integer getTpid() {
-        return tpid;
-    }
-
-    public void setTpid(Integer tpid) {
-        this.tpid = tpid;
-    }
-
-    public Integer getPid() {
-        return pid;
-    }
-
-    public void setPid(Integer pid) {
-        this.pid = pid;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getImageUrl() {
-        return imageUrl;
-    }
-
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
-    }
-
-    public BigDecimal getPrice() {
-        return price;
-    }
-
-    public void setPrice(BigDecimal price) {
-        this.price = price;
-    }
-
-    public Integer getStock() {
-        return stock;
-    }
-
-    public void setStock(Integer stock) {
-        this.stock = stock;
-    }
-
-    public Integer getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
     }
 }

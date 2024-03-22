@@ -2,9 +2,12 @@ package com.fsse2401.project.entity;
 
 import com.fsse2401.project.data.user.domainObject.FirebaseUserData;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Entity
-@Table(name = "user")
+@Entity(name = "user")
+@Getter @Setter @NoArgsConstructor
 public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,34 +17,8 @@ public class UserEntity {
     @Column(nullable = false)
     private String email;
 
-    public UserEntity(){}
-
     public UserEntity(FirebaseUserData userdata) {
         this.firebaseUid = userdata.getFirebaseUid();
         this.email = userdata.getEmail();
-    }
-
-    public Integer getUid() {
-        return uid;
-    }
-
-    public void setUid(Integer uid) {
-        this.uid = uid;
-    }
-
-    public String getFirebaseUid() {
-        return firebaseUid;
-    }
-
-    public void setFirebaseUid(String firebaseUid) {
-        this.firebaseUid = firebaseUid;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 }
