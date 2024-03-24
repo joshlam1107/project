@@ -7,12 +7,12 @@ import lombok.Setter;
 @Getter @Setter
 public class UserResponseData {
     private Integer uid;
-    private String firebaseuid;
+    private String firebaseUid;
     private String email;
 
     public UserResponseData(UserEntity entity) {
         this.uid = entity.getUid();
-        this.firebaseuid = entity.getFirebaseUid();
+        this.firebaseUid = entity.getFirebaseUid();
         this.email = entity.getEmail();
     }
 }

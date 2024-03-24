@@ -6,9 +6,7 @@ import lombok.Setter;
 @Getter @Setter
 public class TransactionSuccessResponseDto {
     public String result;
-
     public TransactionSuccessResponseDto() {
         setResult("SUCCESS");
     }
-
 }

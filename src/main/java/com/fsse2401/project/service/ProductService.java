@@ -2,7 +2,6 @@ package com.fsse2401.project.service;
 
 import com.fsse2401.project.data.product.domainObject.ProductResponseData;
 import com.fsse2401.project.entity.ProductEntity;
-
 import java.util.List;
 
 public interface ProductService {

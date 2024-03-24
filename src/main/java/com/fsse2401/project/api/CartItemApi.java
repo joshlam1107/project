@@ -2,7 +2,7 @@ package com.fsse2401.project.api;
 
 import com.fsse2401.project.data.cartItem.domainObject.CartItemResponseData;
 import com.fsse2401.project.data.cartItem.dto.CartItemResponseDto;
-import com.fsse2401.project.data.cartItem.dto.CartItemSuccessResponseResponseDto;
+import com.fsse2401.project.data.cartItem.dto.CartItemSuccessResponseDto;
 import com.fsse2401.project.service.CartItemService;
 import com.fsse2401.project.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,10 +23,10 @@ public class CartItemApi {
     }
 
     @PutMapping ("/{pid}/{quantity}")
-    public CartItemSuccessResponseResponseDto putCartItem(JwtAuthenticationToken jwtToken,
-                                                          @PathVariable Integer pid, @PathVariable Integer quantity){
+    public CartItemSuccessResponseDto putCartItem(JwtAuthenticationToken jwtToken,
+                                                  @PathVariable Integer pid, @PathVariable Integer quantity){
         cartItemService.putCartItem(JwtUtil.getFirebaseUserData(jwtToken), pid, quantity);
-        return new CartItemSuccessResponseResponseDto();
+        return new CartItemSuccessResponseDto();
     }
 
     @GetMapping
@@ -45,8 +45,8 @@ public class CartItemApi {
     }
 
     @DeleteMapping("/{pid}")
-    public CartItemSuccessResponseResponseDto removeCartItem(JwtAuthenticationToken jwtToken, @PathVariable Integer pid){
+    public CartItemSuccessResponseDto removeCartItem(JwtAuthenticationToken jwtToken, @PathVariable Integer pid){
         cartItemService.removeCartItem(JwtUtil.getFirebaseUserData(jwtToken), pid);
-        return new CartItemSuccessResponseResponseDto();
+        return new CartItemSuccessResponseDto();
     }
 }

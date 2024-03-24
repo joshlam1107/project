@@ -12,8 +12,10 @@ public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer uid;
+
     @Column(name = "firebase_uid", nullable = false)
     private String firebaseUid;
+
     @Column(nullable = false)
     private String email;
 

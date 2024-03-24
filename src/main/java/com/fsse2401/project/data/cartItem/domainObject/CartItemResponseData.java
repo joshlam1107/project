@@ -4,7 +4,6 @@ import com.fsse2401.project.entity.CartItemEntity;
 import com.fsse2401.project.entity.ProductEntity;
 import com.fsse2401.project.entity.UserEntity;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter @Setter

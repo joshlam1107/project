@@ -1,11 +1,9 @@
 package com.fsse2401.project.data.transactionProduct.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fsse2401.project.data.product.dto.ProductResponseDto;
 import com.fsse2401.project.data.transactionProduct.domainObject.TransactionProductResponseData;
 import lombok.Getter;
 import lombok.Setter;
-
 import java.math.BigDecimal;
 
 @Getter @Setter

@@ -16,13 +16,7 @@ public class UserServiceImpl implements UserService {
     }
 
     public UserEntity getEntityByFirebaseUserData (FirebaseUserData firebaseUserData){
-//        Optional<UserEntity> userEntityOptional = userRepository.findByFirebaseUid(firebaseUserData.getFirebaseUid());
-//        if (userEntityOptional.isEmpty()){
-//            UserEntity userEntity = new UserEntity(firebaseUserData);
-//            return userRepository.save(userEntity);
-//        } else {
-//            return userEntityOptional.get();
-//        }
+        // check if there is user found by FirebaseUserId, create one if not found
         return userRepository.findByFirebaseUid(firebaseUserData.getFirebaseUid()).
                 orElseGet(() -> userRepository.save(new UserEntity(firebaseUserData)));
     }

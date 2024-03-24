@@ -22,5 +22,4 @@ public class CreateProductRequestData {
         this.price = dto.getPrice();
         this.stock = dto.getStock();
     }
-
 }

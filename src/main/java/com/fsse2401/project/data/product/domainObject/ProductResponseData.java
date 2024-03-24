@@ -1,7 +1,6 @@
 package com.fsse2401.project.data.product.domainObject;
 
 import com.fsse2401.project.entity.ProductEntity;
-import com.fsse2401.project.entity.TransactionProductEntity;
 import lombok.Getter;
 import lombok.Setter;
 

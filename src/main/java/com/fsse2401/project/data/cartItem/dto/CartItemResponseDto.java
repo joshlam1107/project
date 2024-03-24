@@ -2,14 +2,10 @@ package com.fsse2401.project.data.cartItem.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fsse2401.project.data.cartItem.domainObject.CartItemResponseData;
-import jakarta.persistence.Entity;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 import java.math.BigDecimal;
-@Getter
-@Setter
+@Getter @Setter
 public class CartItemResponseDto {
     private Integer pid;
     private String name;

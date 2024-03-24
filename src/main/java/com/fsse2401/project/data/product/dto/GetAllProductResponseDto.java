@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fsse2401.project.data.product.domainObject.ProductResponseData;
 import lombok.Getter;
 import lombok.Setter;
-
 import java.math.BigDecimal;
 
 @Getter @Setter
@@ -22,6 +21,7 @@ public class GetAllProductResponseDto {
         this.name = data.getName();
         this.imageUrl = data.getImageUrl();
         this.price = data.getPrice();
+        //return true when has stock
         this.hasStock = data.getStock() > 0;
     }
 }

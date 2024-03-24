@@ -1,17 +1,8 @@
 package com.fsse2401.project.data.transactionProduct.domainObject;
 
-import com.fsse2401.project.data.product.domainObject.ProductResponseData;
-import com.fsse2401.project.data.transaction.domainObject.TransactionResponseData;
-import com.fsse2401.project.entity.CartItemEntity;
-import com.fsse2401.project.entity.TransactionEntity;
 import com.fsse2401.project.entity.TransactionProductEntity;
-import jakarta.persistence.Column;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 import java.math.BigDecimal;
 
 @Getter @Setter

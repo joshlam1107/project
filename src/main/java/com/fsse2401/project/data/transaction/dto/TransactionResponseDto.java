@@ -7,15 +7,13 @@ import com.fsse2401.project.data.transaction.domainObject.TransactionResponseDat
 import com.fsse2401.project.data.transaction.status.TransactionStatus;
 import com.fsse2401.project.data.transactionProduct.domainObject.TransactionProductResponseData;
 import com.fsse2401.project.data.transactionProduct.dto.TransactionProductResponseDto;
-import com.fsse2401.project.entity.UserEntity;
 import lombok.Getter;
 import lombok.Setter;
-
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.time.YearMonth;
 import java.util.ArrayList;
 import java.util.List;
+
 @Getter @Setter
 @JsonPropertyOrder({"tid", "buyer_uid", "datetime", "status", "total", "items"})
 public class TransactionResponseDto {

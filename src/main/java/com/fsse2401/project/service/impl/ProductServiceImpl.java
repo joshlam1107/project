@@ -9,16 +9,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class ProductServiceImpl implements ProductService {
     Logger logger = LoggerFactory.getLogger(ProductServiceImpl.class);
-
     private final ProductRepository productRepository;
-
     @Autowired
     public ProductServiceImpl (ProductRepository productRepository){
         this.productRepository = productRepository;
@@ -29,7 +26,7 @@ public class ProductServiceImpl implements ProductService {
         try {
             return new ProductResponseData(getEntityByPid(pid));
         } catch (ProductNotFoundException ex){
-            logger.info("Search Product: Product ID not found");
+            logger.warn("Search Product: " + ex.getMessage());
             throw ex;
         }
     }
@@ -54,6 +51,7 @@ public class ProductServiceImpl implements ProductService {
     }
     @Override
     public boolean deductStock(Integer pid, Integer quantity){
+        //check if product stock is enough for transaction, then deduct stock and return true
         ProductEntity productEntity = getEntityByPid(pid);
         if(productEntity.getStock() >= quantity){
             productEntity.setStock(productEntity.getStock() - quantity);
