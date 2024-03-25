@@ -9,6 +9,6 @@ import java.util.Optional;
 public interface CartItemRepository extends CrudRepository <CartItemEntity, Integer> {
     Optional<CartItemEntity> findByProductPidAndUserFirebaseUid(Integer pid, String firebaseUid);
     List<CartItemEntity> findAllByUser (UserEntity user);
-    void deleteCartItemEntityByProductPidAndUserFirebaseUid(Integer pid, String firebaseUid);
+    Integer deleteByProductPidAndUserFirebaseUid(Integer pid, String firebaseUid);
     void deleteAllByUserFirebaseUid (String firebaseUid);
 }

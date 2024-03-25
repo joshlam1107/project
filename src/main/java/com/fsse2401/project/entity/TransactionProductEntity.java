@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import java.math.BigDecimal;
+
 @Entity(name = "transaction_product")
 @Getter @Setter @NoArgsConstructor
 public class TransactionProductEntity {

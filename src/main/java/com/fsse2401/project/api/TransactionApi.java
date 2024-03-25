@@ -1,6 +1,5 @@
 package com.fsse2401.project.api;
 
-import com.fsse2401.project.data.transaction.domainObject.TransactionResponseData;
 import com.fsse2401.project.data.transaction.dto.TransactionResponseDto;
 import com.fsse2401.project.data.transaction.dto.TransactionSuccessResponseDto;
 import com.fsse2401.project.service.TransactionService;
@@ -18,14 +17,12 @@ public class TransactionApi {
 
     @PostMapping("/prepare")
     public TransactionResponseDto createTransaction (JwtAuthenticationToken jwtToken){
-        TransactionResponseData responseData = transactionService.createTransaction(JwtUtil.getFirebaseUserData(jwtToken));
-        return new TransactionResponseDto(responseData);
+        return new TransactionResponseDto(transactionService.createTransaction(JwtUtil.getFirebaseUserData(jwtToken)));
     }
 
     @GetMapping("/{tid}")
     public TransactionResponseDto getTransactionByTid (JwtAuthenticationToken jwtToken, @PathVariable Integer tid){
-        TransactionResponseData responseData = transactionService.getTransactionByTid(JwtUtil.getFirebaseUserData(jwtToken), tid);
-        return new TransactionResponseDto(responseData);
+        return new TransactionResponseDto(transactionService.getTransactionByTid(JwtUtil.getFirebaseUserData(jwtToken), tid));
     }
 
     @PatchMapping("/{tid}/pay")
@@ -36,7 +33,6 @@ public class TransactionApi {
 
     @PatchMapping("/{tid}/finish")
     public TransactionResponseDto finishTransaction (JwtAuthenticationToken jwtToken, @PathVariable Integer tid){
-        TransactionResponseData responseData = transactionService.finishTransaction(JwtUtil.getFirebaseUserData(jwtToken), tid);
-        return new TransactionResponseDto(responseData);
+        return new TransactionResponseDto(transactionService.finishTransaction(JwtUtil.getFirebaseUserData(jwtToken), tid));
     }
 }

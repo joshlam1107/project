@@ -21,7 +21,7 @@ public class GetAllProductResponseDto {
         this.name = data.getName();
         this.imageUrl = data.getImageUrl();
         this.price = data.getPrice();
-        //return true when has stock
+        //return true when stock is available
         this.hasStock = data.getStock() > 0;
     }
 }

@@ -1,4 +1,4 @@
-package com.fsse2401.project.exception.transaction;
+package com.fsse2401.project.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

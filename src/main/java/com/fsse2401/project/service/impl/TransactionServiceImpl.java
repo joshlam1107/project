@@ -8,10 +8,10 @@ import com.fsse2401.project.entity.TransactionEntity;
 import com.fsse2401.project.entity.TransactionProductEntity;
 import com.fsse2401.project.entity.UserEntity;
 import com.fsse2401.project.exception.cartItem.InvalidQuantityException;
-import com.fsse2401.project.exception.cartItem.ProductOutOfStockException;
+import com.fsse2401.project.exception.cartItem.ProductNotEnoughStockException;
 import com.fsse2401.project.exception.transaction.TransactionNotFoundException;
 import com.fsse2401.project.exception.transaction.TransactionStatusException;
-import com.fsse2401.project.exception.transaction.UserCartEmptyException;
+import com.fsse2401.project.exception.UserCartEmptyException;
 import com.fsse2401.project.repository.TransactionRepository;
 import com.fsse2401.project.service.*;
 import org.slf4j.Logger;
@@ -115,7 +115,7 @@ public class TransactionServiceImpl implements TransactionService {
                 }
                 // check if product stock is enough to proceed transaction
                 if (!productService.isValidQuantity(transactionProductEntity.getPid(), transactionProductEntity.getQuantity())){
-                    throw new ProductOutOfStockException(productService.getEntityByPid(transactionProductEntity.getPid()), transactionProductEntity.getQuantity());
+                    throw new ProductNotEnoughStockException(productService.getEntityByPid(transactionProductEntity.getPid()), transactionProductEntity.getQuantity());
                 }
                 // deduct product stock by order quantity once confirm transaction can be proceeded
                 productService.deductStock(transactionProductEntity.getPid(), transactionProductEntity.getQuantity());
@@ -124,7 +124,7 @@ public class TransactionServiceImpl implements TransactionService {
             } transactionEntity.setStatus(TransactionStatus.PROCESSING);
               transactionRepository.save(transactionEntity);
               return true;
-        } catch (TransactionStatusException | InvalidQuantityException | ProductOutOfStockException ex){
+        } catch (TransactionStatusException | InvalidQuantityException | ProductNotEnoughStockException ex){
             logger.warn("Pay transaction: " + ex.getMessage());
             throw ex;
         }

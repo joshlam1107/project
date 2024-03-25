@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity(name = "cart_item")
+@Entity (name = "cart_item")
 @Getter @Setter @NoArgsConstructor
 public class CartItemEntity {
     @Id

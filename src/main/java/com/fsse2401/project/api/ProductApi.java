@@ -5,7 +5,6 @@ import com.fsse2401.project.data.product.dto.GetAllProductResponseDto;
 import com.fsse2401.project.data.product.dto.ProductResponseDto;
 import com.fsse2401.project.service.ProductService;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,7 +27,6 @@ public class ProductApi {
 
     @GetMapping("/{pid}")
     public ProductResponseDto getProductByProductId (@PathVariable Integer pid){
-        ProductResponseData responseData = productService.getProductByProductId(pid);
-        return new ProductResponseDto(responseData);
+        return new ProductResponseDto(productService.getProductByProductId(pid));
     }
 }
